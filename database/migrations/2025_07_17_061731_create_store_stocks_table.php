@@ -4,20 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('customer_orders', function (Blueprint $table) {
+        Schema::create('store_stocks', function (Blueprint $table) {    // will be sold to customer using the LATEST price from daily_prices table
             $table->uuid('id')->primary();
-            $table->string('suborder_id');
-            $table->uuid('customer_id');
+            $table->uuid('store_id');
             $table->uuid('sub_product_id');
-            $table->uuid('customer_daily_prices_id');
             $table->decimal('quantity', 10, 2);
-            $table->integer('status')->default(0); // 0: pending, 1: completed, 2: cancelled
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('customer_orders');
+        Schema::dropIfExists('store_stocks');
     }
 };
