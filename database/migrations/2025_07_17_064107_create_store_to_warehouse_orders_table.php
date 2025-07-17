@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('suborder_id');  // items ordered in the same order will share the same suborder_id
             $table->uuid('sub_product_id');
             $table->uuid('warehouse_daily_prices_id');  // price of the item AT THE TIME the order was made
-            $table->decimal('quantity', 10, 2);
+            $table->decimal('quantity_requested', 10, 2);
+            $table->decimal('quantity_provided', 10, 2);
             $table->integer('status')->default(0); // 0: pending for a warehouse, 1: accepted by that warehouse, 2: rejected by that warehouse (if rejected, another new entry will be made for a different alloted warehouse), 3: cancelled by the store
             $table->timestamps();
         });
