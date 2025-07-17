@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WarehouseStock extends Model
+class StoreToWarehouseOrder extends Model
 {
-    /** @use HasFactory<\Database\Factories\WarehouseStockFactory> */
+    /** @use HasFactory<\Database\Factories\StoreToWarehouseOrderFactory> */
     use HasFactory, HasUuids;
+
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**

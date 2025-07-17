@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->uuid('customer_id');
             $table->uuid('sub_product_id');
-            $table->uuid('customer_daily_prices_id');
             $table->decimal('quantity', 10, 2);
             $table->timestamps();
         });
